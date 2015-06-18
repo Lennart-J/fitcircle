@@ -34,7 +34,7 @@
                     android:layout_width="225dp"
                     android:layout_height="wrap_content"
                     android:text="Example"
-                android:textSize="24sp"
+                android:textSize="@dimen/txt_size_title_landscape"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
@@ -48,7 +48,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginRight="5dp"
-                android:textSize="18dp" />
+                android:textSize="@dimen/txt_size_title" />
             
             <TextView
                     android:id="@+id/main_trainingschedule_difficulty"
@@ -58,7 +58,7 @@
                 android:layout_alignTop="@+id/main_trainingschedule_difficulty_label"
                 android:layout_toEndOf="@+id/main_trainingschedule_difficulty_label"
                 android:layout_toRightOf="@+id/main_trainingschedule_difficulty_label"
-                android:textSize="18dp" />
+                android:textSize="@dimen/txt_size_title" />
 
             
 
@@ -78,31 +78,43 @@
         
                     <ImageView
                             android:id="@+id/main_trainingschedule_tool_mat"
-                            android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
+                            android:layout_width="@dimen/tools_image_size"
+                            android:layout_height="@dimen/tools_image_size"
                             android:src="@drawable/tool1"
-                        android:adjustViewBounds="true" />
+                        android:adjustViewBounds="true"
+                        android:visibility="visible"
+                        android:background="@color/darkblue"
+                        android:layout_margin="4dp" />
         
                     <ImageView
                             android:id="@+id/main_trainingschedule_tool_expander"
-                            android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
+                            android:layout_width="@dimen/tools_image_size"
+                            android:layout_height="@dimen/tools_image_size"
                             android:src="@drawable/tool2"
-                        android:adjustViewBounds="true" />
+                        android:adjustViewBounds="true"
+                        android:visibility="visible"
+                        android:background="@color/darkblue"
+                        android:layout_margin="4dp" />
         
                     <ImageView
                             android:id="@+id/main_trainingschedule_tool_ball"
-                            android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
+                            android:layout_width="@dimen/tools_image_size"
+                            android:layout_height="@dimen/tools_image_size"
                             android:src="@drawable/tool3"
-                        android:adjustViewBounds="true" />
+                        android:adjustViewBounds="true"
+                        android:visibility="visible"
+                        android:background="@color/darkblue"
+                        android:layout_margin="4dp" />
         
                     <ImageView
                             android:id="@+id/main_trainingschedule_tool_chair"
-                            android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
+                            android:layout_width="@dimen/tools_image_size"
+                            android:layout_height="@dimen/tools_image_size"
                             android:src="@drawable/tool4"
-                        android:adjustViewBounds="true" />
+                        android:adjustViewBounds="true"
+                        android:visibility="visible"
+                        android:background="@color/darkblue"
+                        android:layout_margin="4dp" />
                 </LinearLayout>
         </RelativeLayout>
 

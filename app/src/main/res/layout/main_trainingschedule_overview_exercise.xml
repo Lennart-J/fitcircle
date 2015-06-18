@@ -34,7 +34,7 @@
                     android:layout_width="225dp"
                     android:layout_height="wrap_content"
                     android:text="Example"
-                android:textSize="18sp"
+                android:textSize="@dimen/txt_size_title"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
@@ -63,7 +63,7 @@
             <LinearLayout
                     android:id="@+id/main_trainingschedule_util_type"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tools_image_row_height"
                     android:orientation="horizontal"
                 android:layout_below="@+id/main_trainingschedule_difficulty"
                 android:layout_alignParentLeft="true"
@@ -71,31 +71,39 @@
 
                     <ImageView
                             android:id="@+id/main_trainingschedule_tool_mat"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/tools_image_size"
+                            android:layout_height="@dimen/tools_image_size"
+                            android:layout_margin="4dp"
+                            android:layout_gravity="center"
                             android:src="@drawable/tool1"
-                            />
+                        android:background="@color/darkblue" />
 
                     <ImageView
                             android:id="@+id/main_trainingschedule_tool_expander"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/tools_image_size"
+                            android:layout_height="@dimen/tools_image_size"
+                            android:layout_margin="4dp"
+                            android:layout_gravity="center"
                             android:src="@drawable/tool2"
-                            />
+                        android:background="@color/darkblue" />
 
                     <ImageView
                             android:id="@+id/main_trainingschedule_tool_ball"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/tools_image_size"
+                            android:layout_height="@dimen/tools_image_size"
                             android:src="@drawable/tool3"
-                            />
+                        android:layout_margin="4dp"
+                        android:layout_gravity="center"
+                        android:background="@color/darkblue" />
 
                     <ImageView
                             android:id="@+id/main_trainingschedule_tool_chair"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/tools_image_size"
+                            android:layout_height="@dimen/tools_image_size"
                             android:src="@drawable/tool4"
-                            />
+                        android:layout_margin="4dp"
+                        android:layout_gravity="center"
+                        android:background="@color/darkblue" />
                 </LinearLayout>
         </RelativeLayout>
 
