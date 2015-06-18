@@ -59,6 +59,19 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
             R.drawable.pose45
     };
 
+    private final int[] exerciseTools= new int[] {
+            R.drawable.tool1,
+            R.drawable.tool2,
+            R.drawable.tool3,
+            R.drawable.tool4
+    };
+
+    private final int[] difficultyLevels= new int[] {
+            R.string.difficulty_easy,
+            R.string.difficulty_medium,
+            R.string.difficulty_hard
+    };
+
     private final List<Exercise> exercises;
 
     public ExerciseAdapter(Context context, List<Exercise> exercises) {
@@ -74,6 +87,7 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
             viewHolder = new ViewHolder();
             viewHolder.poseView = (ImageView) convertView.findViewById(R.id.main_trainingschedule_workout_type);
             viewHolder.nameView = (TextView) convertView.findViewById(R.id.main_trainingschedule_workout_name);
+            viewHolder.difficultyView = (TextView) convertView.findViewById(R.id.main_trainingschedule_difficulty);
 
             convertView.setTag(viewHolder);
         } else {
@@ -83,6 +97,7 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
         Exercise exercise = this.exercises.get(position);
         viewHolder.poseView.setImageResource(this.exerciseIcons[exercise.getWorkoutType() - 1]);
         viewHolder.nameView.setText(exercise.getName());
+        viewHolder.difficultyView.setText(difficultyLevels[exercise.getDifficulty()]);
 
         return convertView;
     }
@@ -90,5 +105,6 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
     private static class ViewHolder {
         private ImageView poseView;
         public TextView nameView;
+        public TextView difficultyView;
     }
 }
