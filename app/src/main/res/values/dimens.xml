@@ -4,7 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="tools_image_size">40dp</dimen>
-    <dimen name="tools_image_row_height">48dp</dimen>
 
     <dimen name="txt_size_title">18sp</dimen>
     <dimen name="txt_size_title_landscape">24sp</dimen>
