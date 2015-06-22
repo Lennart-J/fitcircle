@@ -9,7 +9,7 @@ import android.provider.BaseColumns;
  * Created by j.a.n.s on 18.11.2014.
  */
 public class TrainingScheduleContract {
-    public static final String AUTHORITY = "de.jsauerwein.fitcircle";
+    public static final String AUTHORITY = "de.jsauerwein.fitcircle.schedule";
 
     public static final String SCHEME = "content://";
 
