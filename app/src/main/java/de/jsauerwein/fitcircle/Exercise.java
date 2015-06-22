@@ -25,10 +25,6 @@ public class Exercise {
         return this.workoutName;
     }
 
-    public int getDifficulty() {
-        return (int) (Math.random() * 10 % 3);
-    }
-
     public List<Integer> getTools() {
         return this.tools;
     }

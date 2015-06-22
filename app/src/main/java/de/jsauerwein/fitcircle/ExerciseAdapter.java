@@ -1,8 +1,6 @@
 package de.jsauerwein.fitcircle;
 
-import android.app.ActionBar;
 import android.content.Context;
-import android.media.Image;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,8 +94,6 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
         Exercise exercise = this.exercises.get(position);
         viewHolder.poseView.setImageResource(this.exerciseIcons[exercise.getWorkoutType() - 1]);
         viewHolder.nameView.setText(exercise.getName());
-        viewHolder.difficultyView.setText(difficultyLevelTexts[exercise.getDifficulty()]);
-
 
         return convertView;
     }
