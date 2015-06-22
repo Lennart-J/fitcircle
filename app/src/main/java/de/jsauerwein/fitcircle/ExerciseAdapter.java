@@ -1,10 +1,12 @@
 package de.jsauerwein.fitcircle;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -58,6 +60,13 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
             R.drawable.pose44,
             R.drawable.pose45
     };
+    
+
+    private final int[] difficultyLevelTexts= new int[] {
+            R.string.difficulty_easy,
+            R.string.difficulty_medium,
+            R.string.difficulty_hard
+    };
 
     private final List<Exercise> exercises;
 
@@ -74,6 +83,8 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
             viewHolder = new ViewHolder();
             viewHolder.poseView = (ImageView) convertView.findViewById(R.id.main_trainingschedule_workout_type);
             viewHolder.nameView = (TextView) convertView.findViewById(R.id.main_trainingschedule_workout_name);
+            viewHolder.difficultyView = (TextView) convertView.findViewById(R.id.main_trainingschedule_difficulty);
+            viewHolder.utilTypes = (LinearLayout) convertView.findViewById(R.id.main_trainingschedule_util_type);
 
             convertView.setTag(viewHolder);
         } else {
@@ -90,5 +101,7 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
     private static class ViewHolder {
         private ImageView poseView;
         public TextView nameView;
+        public TextView difficultyView;
+        public LinearLayout utilTypes;
     }
 }
