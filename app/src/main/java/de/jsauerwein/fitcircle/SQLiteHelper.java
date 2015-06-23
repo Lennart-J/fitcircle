@@ -10,34 +10,25 @@ import android.util.Log;
  */
 public class SQLiteHelper extends SQLiteOpenHelper {
 
-    public static final String TABLE_EXERCISES = "exercises";
-    public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_NAME = "name";
-    public static final String COLUMN_TYPE = "type";
-    public static final String COLUMN_DIFFICULTY = "_id";
-
     private static final String DATABASE_NAME = "exercises.db";
     private static final int DATABASE_VERSION = 1;
 
-    public SQLiteHelper(Context context, SQLiteDatabase.CursorFactory factory) {
-        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+    public SQLiteHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(
-                "create table "
-                + TABLE_EXERCISES + "("
-                + COLUMN_ID + " integer primary key autoincrement, "
-                + COLUMN_NAME + " text not null, "
-                + COLUMN_TYPE + " text not null, "
-                + COLUMN_DIFFICULTY + " text not null, " +");"
-        );
+        Log.d("LENNART", "sqlhelper onCreate");
+        ExerciseTable.onCreate(sqLiteDatabase);
+        ToolsTable.onCreate(sqLiteDatabase);
+        Exercise2ToolsTable.onCreate(sqLiteDatabase);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_EXERCISES);
-        onCreate(sqLiteDatabase);
+        ExerciseTable.onUpgrade(sqLiteDatabase);
+        ToolsTable.onUpgrade(sqLiteDatabase);
+        Exercise2ToolsTable.onUpgrade(sqLiteDatabase);
     }
 }
