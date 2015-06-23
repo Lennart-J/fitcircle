@@ -121,7 +121,7 @@ public class ExerciseCursorAdapter  extends CursorAdapter{
             Cursor toolsCursor = contentResolver.query(toolsUri, null, null, null, null);
 
             while(toolsCursor.moveToNext()) {
-                switch (toolsCursor.getInt(toolsCursor.getColumnIndex("tool"))) {
+                switch (toolsCursor.getInt(toolsCursor.getColumnIndex("tool_id"))) {
                     case 1:
                         viewHolder.tool1.setVisibility(View.VISIBLE);
                         break;

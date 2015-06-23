@@ -5,11 +5,17 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.MatrixCursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.util.Log;
 
 import java.util.List;
 
 public class TrainingScheduleProvider extends ContentProvider {
+
+    private SQLiteHelper dbHelper;
+
     public TrainingScheduleProvider() {
     }
 
@@ -23,30 +29,27 @@ public class TrainingScheduleProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
         String[] columnNames;
-        MatrixCursor cursor;
+        Cursor cursor;
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
         switch(TrainingScheduleContract.URI_MATCHER.match(uri)) {
             case TrainingScheduleContract.EXERCISE_LIST:
-                columnNames = new String[] { "_id", "type", "name", "difficulty" };
-                cursor = new MatrixCursor(columnNames);
-                cursor.addRow(new Object[]{0, 3, "Exercise 3", 2});
-                cursor.addRow(new Object[]{1, 14, "Exercise 14", 2});
-                cursor.addRow(new Object[]{2, 21, "Exercise 21", 5});
-                cursor.addRow(new Object[]{3, 21, "Exercise 28", 3});
-                cursor.addRow(new Object[]{4, 39, "Exercise 39", 7});
-                cursor.addRow(new Object[]{5, 41, "Exercise 41", 7});
-                cursor.addRow(new Object[]{6, 44, "Exercise 44", 4});
-                cursor.addRow(new Object[]{7, 45, "Exercise 45", 8});
+                SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+                queryBuilder.setTables(ExerciseTable.TABLE_EXERCISES);
 
+                cursor = queryBuilder.query(db, projection, selection, selectionArgs, null, null, sortOrder);
+                cursor.setNotificationUri(getContext().getContentResolver(), uri);
                 return cursor;
             case TrainingScheduleContract.EXERCISE_TOOL_LIST:
                 List<String> pathSegments = uri.getPathSegments();
                 int exercise = Integer.valueOf(pathSegments.get(pathSegments.size() - 2));
-                columnNames = new String[] { "tool" };
-                cursor = new MatrixCursor(columnNames);
-                Object[][][]tools = new Object[][][] {{{1}}, {{1}}, {{1}}, {{1}}, {{4}}, {{3}}, {{2}, {4}}, {{2}, {3}}};
-                for(Object[] row : tools[exercise]) {
-                    cursor.addRow(row);
-                }
+
+                SQLiteQueryBuilder queryBuilderTools = new SQLiteQueryBuilder();
+                queryBuilderTools.setTables(Exercise2ToolsTable.TABLE_EXERCISE_TO_TOOLS);
+                queryBuilderTools.appendWhere(Exercise2ToolsTable.COLUMN_EXERCISE_ID + "=" + exercise);
+
+                cursor = queryBuilderTools.query(db, projection, selection, selectionArgs, null, null, sortOrder);
+                cursor.setNotificationUri(getContext().getContentResolver(), uri);
 
                 return cursor;
             default:
@@ -82,6 +85,7 @@ public class TrainingScheduleProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         // TODO: Implement this to initialize your content provider on startup.
+        dbHelper = new SQLiteHelper(this.getContext());
         return false;
     }
 }
