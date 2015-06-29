@@ -10,4 +10,14 @@
     <string name="difficulty_easy">easy</string>
     <string name="difficulty_medium">medium</string>
     <string name="difficulty_hard">hard</string>
+
+    <string name="exercise_name">Enter exercise name</string>
+    <string name="exercise_type">Enter exercise type</string>
+    <string name="exercise_difficulty">Enter exercise difficulty</string>
+    <string name="exercise_tools">Tools:</string>
+    <string name="exercise_tool_mat">Mat</string>
+    <string name="exercise_tool_expander">Expander</string>
+    <string name="exercise_tool_ball">Ball</string>
+    <string name="exercise_tool_chair">Chair</string>
+    <string name="exercise_add_button">Add exercise</string>
 </resources>

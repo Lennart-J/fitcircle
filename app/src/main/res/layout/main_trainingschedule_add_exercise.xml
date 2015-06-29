@@ -5,9 +5,98 @@
     tools:context="de.jsauerwein.fitcircle.AddExercise">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/scrollView"
+        >
 
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_gravity="center_horizontal|top">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/exerciseNameEdit"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/exercise_name" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/exerciseTypeEdit"
+                android:layout_below="@+id/exerciseNameEdit"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:hint="@string/exercise_type"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentEnd="true" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/exerciseDifficultyEdit"
+                android:layout_below="@+id/exerciseTypeEdit"
+                android:layout_alignParentLeft="true"
+                android:hint="@string/exercise_difficulty"
+                android:layout_marginBottom="10dp"
+                android:inputType="numberDecimal"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:id="@+id/exerciseTools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/exercise_tools"
+                android:layout_centerVertical="true"
+                android:layout_below="@id/exerciseDifficultyEdit" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exercise_tool_mat"
+                android:id="@+id/checkBoxMat"
+                android:layout_below="@id/exerciseTools"
+                android:checked="false" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exercise_tool_expander"
+                android:id="@+id/checkBoxExpander"
+                android:layout_below="@id/checkBoxMat"
+                android:checked="false" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exercise_tool_ball"
+                android:id="@+id/checkBoxBall"
+                android:layout_below="@id/checkBoxExpander"
+                android:checked="false" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exercise_tool_chair"
+                android:id="@+id/checkBoxChair"
+                android:layout_below="@id/checkBoxBall"
+                android:checked="false" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="bottom"
+        android:text="@string/exercise_add_button"
+
+        android:id="@+id/exerciseAddButton"/>
 </FrameLayout>
