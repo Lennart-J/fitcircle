@@ -65,12 +65,6 @@ public class ExerciseCursorAdapter  extends CursorAdapter{
             R.drawable.pose45
     };
 
-    private final int[] difficultyLevelTexts= new int[] {
-            R.string.difficulty_easy,
-            R.string.difficulty_medium,
-            R.string.difficulty_hard
-    };
-
     public ExerciseCursorAdapter(Context context, Cursor c) {
         super(context, c, 0);
     }
@@ -101,7 +95,7 @@ public class ExerciseCursorAdapter  extends CursorAdapter{
             String name = cursor.getString(cursor.getColumnIndex("name"));
             String difficulty = cursor.getString(cursor.getColumnIndex("difficulty"));
 
-            viewHolder.poseView.setImageResource(this.exerciseIcons[type - 1]);
+            viewHolder.poseView.setImageResource(exerciseIcons[type - 1]);
             viewHolder.nameView.setText(name);
             viewHolder.difficultyView.setText(difficulty);
             viewHolder.tool1.setVisibility(View.GONE);
@@ -111,12 +105,8 @@ public class ExerciseCursorAdapter  extends CursorAdapter{
 
             ContentResolver contentResolver = context.getContentResolver();
 
-            Uri toolsUri = Uri.parse(
-                    new StringBuilder()
-                            .append("content://de.jsauerwein.fitcircle.schedule/exercises/")
-                            .append(cursor.getString(cursor.getColumnIndex("_id")))
-                            .append("/tools").toString()
-            );
+            Uri toolsUri = Uri.parse(TrainingScheduleContract.Exercises.Tools.CONTENT_URI.toString()
+                    .replace("#", cursor.getString(cursor.getColumnIndex("_id"))));
 
             Cursor toolsCursor = contentResolver.query(toolsUri, null, null, null, null);
 
