@@ -43,21 +43,23 @@ public class InteractionModel extends Fragment {
         switch(fragmentId) {
             case WORKOUT_OVERVIEW:
                 fragment = new TrainingScheduleOverview();
+                if (this.currentFragment != null) {
+                    transaction.remove(this.currentFragment);
+                }
+                transaction.add(R.id.fragment_container, fragment);
                 break;
             case WORKOUT_ADDING:
                 fragment = new AddExercise();
+                transaction.replace(R.id.fragment_container, fragment).addToBackStack("overview");
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown fragment.");
         }
 
-        if (this.currentFragment != null) {
-            transaction.remove(this.currentFragment);
-        }
-        transaction.add(R.id.fragment_container, fragment);
         this.currentFragment = fragment;
         transaction.commit();
     }
+
 
     @Override
     public void onPause() {
