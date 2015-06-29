@@ -67,7 +67,6 @@ public class TrainingScheduleOverview extends Fragment implements LoaderManager.
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         exerciseCursorAdapter.swapCursor(null);
-        exerciseList.setAdapter(new ExerciseAdapter(this.getActivity(), exercises));
     }
 
     @Override
