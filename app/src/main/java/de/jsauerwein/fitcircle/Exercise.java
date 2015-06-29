@@ -25,6 +25,10 @@ public class Exercise {
         return this.workoutName;
     }
 
+    public List<Integer> getTools() {
+        return this.tools;
+    }
+
     public static class Builder {
         private int workoutType;
         private String workoutName;
